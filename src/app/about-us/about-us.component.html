@@ -1,0 +1,61 @@
+
+<nav class="nav-links">
+      <a class="active">Users</a>
+      <a routerLink="/products">Products</a>
+      <a routerLink="/cart">Cart</a>
+    </nav><div class="about-wrap">
+        <div style="text-align: center;margin: 10px auto;padding: 0px;">
+            <form style="margin: 10px auto;" [formGroup]="signinForm" (ngSubmit)="addUser(signinForm.value);">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label class="form-group has-float-label">
+                            <span>NAME</span>
+                            <input class="form-control" type="text" placeholder=" " id="name" formControlName="name" />
+                            
+                            <p class="formWarningtd" *ngIf="!signinForm.controls['name'].valid && signinForm.controls['name'].touched">Name is
+                                required.</p>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label class="form-group has-float-label">
+                            <span>PLACE</span>
+                            <input class="form-control" type="text" placeholder=" " name="place" id="place"
+                                formControlName="place" />
+                    
+                            <p class="formWarningtd" *ngIf="!signinForm.controls['place'].valid && signinForm.controls['place'].touched">Phone is
+                                required.</p>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+                        <button mat-button class="btn btn-default" style="background-color: #062E64" [disabled]="!signinForm.valid" style="width: 150px;font-family: 'Nunitoregular';color: #ffffff " [ngStyle]="{'background-color': !signinForm.valid ? '#818181' : (signinForm.valid ? '#062E64':null) }">
+                            Add User
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <table class="cust-work-req-table">
+            <thead>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Place</th>
+            </thead>
+            <tbody>
+                <ng-container>
+                    <tr *ngFor="let user of userData;let i=index;">
+                        <td>{{i+1}}</td>
+                        <td>{{ user.name}} </td>
+                        <td> {{user.place}}</td>
+                    </tr>
+
+                </ng-container>
+
+            </tbody>
+        </table>
+</div>

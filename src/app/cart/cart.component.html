@@ -1,0 +1,67 @@
+<nav class="nav-links">
+    <a routerLink="/">Users</a>
+    <a routerLink="/products">Products</a>
+    <a class="active">Cart</a>
+  </nav><div class="about-wrap">
+      Cart Items
+      <table class="cust-work-req-table">
+        <thead>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Price</th>
+        </thead>
+        <tbody>
+            <ng-container>
+                <tr *ngFor="let product of cartData;let i=index;">
+                    <td>{{i+1}}</td>
+                    <td>{{ product.name}} </td>
+                    <td> &#8377; {{product.price}}</td>
+                </tr>
+
+            </ng-container>
+
+        </tbody>
+    </table>
+    <div class="col-sm-12 text-center"> Total:  &#8377; {{
+        totalPrice}}</div> <button (click)="orderPlaced()"> Place Order</button>
+  </div>
+<div *ngIf="grandTotal" style="padding: 2%;">
+    <table class="cust-work-req-table">
+        <thead>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Tax</th>
+            <th>Total</th>
+        </thead>
+        <tbody>
+            <ng-container>
+                <tr>
+                    <td>Seller</td>
+                    <td>  &#8377;{{ seller}} </td>
+                    <td> &#8377; {{stax}}</td>
+                    <td>  &#8377;{{ sellerTotal}}</td>
+                </tr>
+                <tr>
+                    <td>Website</td>
+                    <td> &#8377;{{ website}} </td>
+                    <td> &#8377; {{wtax}}</td>
+                    <td>  &#8377;{{ websiteTotal}}</td>
+                </tr>
+                <tr>
+                    <td>Charity</td>
+                    <td>  &#8377;{{ charity}} </td>
+                    <td> &#8377; {{ctax}}</td>
+                    <td>  &#8377;{{ charityTotal}}</td>
+                </tr>
+                <tr>
+                    
+                    <td colspan="3">Total Payable Amount:</td>
+                    <td>
+                        &#8377;{{grandTotal}}
+                    </td>
+                </tr>
+            </ng-container>
+
+        </tbody>
+    </table>
+</div>

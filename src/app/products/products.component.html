@@ -1,0 +1,99 @@
+<nav class="nav-links">
+    <a routerLink="/">Users</a>
+    <a class="active">Products</a>
+    <a routerLink="/cart">Cart</a>
+  </nav><div class="about-wrap">
+    <div class="about-wrap">
+      <div style="text-align: center;margin: 10px auto;padding: 0px;">
+          <form style="margin: 10px auto;" [formGroup]="productsForm" (ngSubmit)="addUser(productsForm.value);">
+              <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <label class="form-group has-float-label">
+                          <span> PRODUCT NAME</span>
+                          <input class="form-control" type="text" placeholder=" " id="name" formControlName="name" />
+                          
+                          <p class="formWarningtd" *ngIf="!productsForm.controls['name'].valid && productsForm.controls['name'].touched">Name is
+                              required.</p>
+                      </label>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <label class="form-group has-float-label">
+                          <span> PRICE</span>
+                          <input class="form-control" type="number" placeholder=" " name="price" id="price"
+                              formControlName="price" />
+                  
+                          <p class="formWarningtd" *ngIf="!productsForm.controls['price'].valid && productsForm.controls['price'].touched">Price is
+                              required.</p>
+                      </label>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label class="form-group has-float-label">
+                        <span> AVAILABLE DATE</span>
+                        <input (focus)="openPicker()" matInput formControlName="date" [matDatepicker]="picker" placeholder="Select Date"  class="form-control" readonly [min]="minDate" matInput/><mat-datepicker #picker></mat-datepicker>
+                        <p class="formWarningtd" *ngIf="!productsForm.controls['date'].valid && productsForm.controls['date'].touched">Date is
+                            required.</p>
+                            <!-- <mat-form-field class="w-100">
+                                <input (focus)="openPicker()" matInput formControlName="requested_date" [matDatepicker]="picker" placeholder="Select Date" readonly [min]="minDate" />
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                
+                                <mat-error *ngIf="getterdate.invalid">
+                                    Select Valid Date
+                                </mat-error>
+                            </mat-form-field> -->
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label class="form-group has-float-label">
+                        <span> Time</span>
+                        <input (focus)="timeKeyUp = true"  formControlName="time"  class="form-control" placeholder="" atp-time-picker />
+                
+                        <p class="formWarningtd" *ngIf="!productsForm.controls['time'].valid && productsForm.controls['time'].touched">Time is
+                            required.</p>
+                    </label>
+                </div>
+            </div>
+
+              <div class="row">
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+                      <button mat-button class="btn btn-default" style="background-color: #062E64" [disabled]="!productsForm.valid" style="width: 150px;font-family: 'Nunitoregular';color: #ffffff " [ngStyle]="{'background-color': !productsForm.valid ? '#818181' : (productsForm.valid ? '#062E64':null) }">
+                          Add Product
+                      </button>
+                  </div>
+              </div>
+          </form>
+
+      </div>
+      <table class="cust-work-req-table">
+          <thead>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Available Date</th>
+              <th>Available Time</th>
+              <th>Availability</th>
+          </thead>
+          <tbody>
+              <ng-container>
+                  <tr *ngFor="let product of productsData;let i=index;">
+                      <td>{{i+1}}</td>
+                      <td>{{ product.name}} </td>
+                      <td> &#8377; {{product.price}}</td>
+                      <td>{{ product.date}} </td>
+                      <td> {{product.time}}</td>
+                      <td> <button *ngIf="product?.availabe == true && !product?.added" (click)="addtocart(product)"> Add to Cart</button>
+                        <button *ngIf="product?.added"> Added</button>
+                        <button (click)="removeItem(product)" *ngIf="product?.added"> Remove</button>
+                        <button *ngIf="product?.availabe == false">Not Available</button></td>
+                  </tr>
+
+              </ng-container>
+
+          </tbody>
+      </table>
+</div>

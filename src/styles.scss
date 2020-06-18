@@ -1,0 +1,411 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+
+/* You can add global styles to this file, and also import other style files */
+
+@import "./theme.scss";
+// fonts import
+@font-face {
+    font-family: "Manuale-regular";
+    src: url("./assets/fonts/Manuale-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Manuale-bold";
+    src: url("./assets/fonts/Manuale-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Manuale-SemiBold";
+    src: url("./assets/fonts/Manuale-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Ubuntu-bold";
+    src: url("./assets/fonts/Ubuntu-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Ubuntu-Medium";
+    src: url("./assets/fonts/Ubuntu-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Ubuntu-Regular";
+    src: url("./assets/fonts/Ubuntu-Regular.ttf");
+}
+
+// theme common elements
+html,
+body {
+    height: 100%;
+}
+
+p {
+    font-size: 1.6rem;
+    &.dull {
+        color: #797979;
+    }
+    &.regular {
+        color: $secondary;
+    }
+    &.light {
+        color: $primary;
+    }
+}
+
+h3 {
+    text-align: center;
+    color: $dark;
+    font-family: $manuale-semiBold;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin: 20px 0px;
+}
+
+#social-web {
+    padding: 3% 0%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.py-2 {
+    padding: 2% 0%;
+}
+
+h2 {
+    font-family: $manuale-semiBold;
+    font-size: 3.5rem;
+    margin: 10px 0px;
+    font-style: italic;
+}
+
+.d-inline {
+    display: inline-block;
+}
+
+.pr-5 {
+    padding-right: 5%;
+}
+
+.pt-2 {
+    padding-top: 2%;
+}
+
+.mr-3 {
+    margin-right: 3%;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.mt-0 {
+    margin-top: 0% !important;
+}
+
+.mx-2 {
+    margin: 0% 2%;
+}
+
+.p-0 {
+    padding: 0%;
+}
+
+.py-10 {
+    padding: 10px 0px;
+}
+
+.px-4 {
+    padding: 4% 0%;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-3px);
+    }
+    40% {
+        transform: translateX(0px);
+    }
+    60% {
+        transform: translateX(-3px);
+    }
+    75% {
+        transform: translateX(0px);
+    }
+    90% {
+        transform: translateX(-3px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.cdk-overlay-dark-backdrop {
+    background: rgba(39, 37, 37, 0.82) !important;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px;
+    outline: none;
+    font-family: $ubuntu-medium;
+    &.secondary-btn {
+        background: $primary;
+        border: 1.5px solid $secondary;
+        color: $secondary;
+        transition: 0.3s ease-in;
+        .blue-arrow {
+            display: inline;
+        }
+        .white-arrow {
+            display: none;
+        }
+        &:hover {
+            background: $secondary;
+            color: $primary;
+            border: 1.5px solid $secondary;
+            .blue-arrow {
+                display: none;
+            }
+            .white-arrow {
+                display: inline;
+            }
+            img {
+                animation-name: bounce;
+                animation-iteration-count: 1;
+                animation-duration: 1000ms;
+                animation-timing-function: ease;
+            }
+        }
+    }
+    &.primary-btn {
+        background: $secondary;
+        color: $primary;
+        border: 1.5px solid $secondary;
+        transition: 0.3s ease-in;
+        .blue-arrow {
+            display: none;
+        }
+        .white-arrow {
+            display: inline;
+        }
+        &:hover {
+            background: $primary;
+            color: $secondary;
+            border: 1.5px solid $secondary;
+            .blue-arrow {
+                display: inline;
+            }
+            .white-arrow {
+                display: none;
+            }
+            img {
+                animation-name: bounce;
+                animation-iteration-count: 1;
+                animation-duration: 1000ms;
+                animation-timing-function: ease;
+            }
+        }
+    }
+}
+
+.frame-sm,
+//for mobile 
+.frame-md {
+    //for medium screen
+    display: block;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.row {
+    margin: 0px;
+}
+
+.carousel-indicators {
+    left: 15%;
+}
+
+.float-div {
+    position: fixed;
+    bottom: 10%;
+    right: 0;
+    z-index: 99;
+    display: flex;
+  }
+  .float-whatsapp {
+    cursor: pointer;
+    width: 120px;
+    height: 58px;
+  }
+  .float-up, .float-whatsappmob {
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+  }
+  .float-whatsappmob {
+    margin-right: 18px;
+  }
+
+
+.floatbtn-right {
+    right: -15%;
+    position: fixed;
+    width: 280px;
+    top: 30%;
+    margin-left: -250px;
+    z-index: 110;
+}
+
+.floatbtn-left {
+    left: -14%;
+    position: fixed;
+    width: 300px;
+    top: 33%;
+    z-index: 110;
+}
+
+.cdk-overlay-pane {
+    position: absolute;
+    pointer-events: auto;
+    text-align: center !important;
+    box-sizing: border-box;
+    z-index: 1000;
+    // width: 40% !important;
+    display: flex;
+    max-width: 100% !important;
+    max-height: 100%;
+}
+
+.mat-dialog-container {
+    padding: 0px !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    width: 75% !important;
+    height: 75% !important;
+    margin: 0 auto !important;
+}
+
+.mat-tab-header {
+    border-bottom: none !important;
+}
+
+.relative {
+    position: relative;
+}
+
+.carousel {
+    outline: none !important;
+}
+
+.carousel-inner {
+    outline: none !important;
+}
+
+.carousel-slide {
+    outline: none !important;
+}
+
+.carousel-indicators li {
+    width: 12px;
+    height: 12px;
+    margin: 3px;
+    background-color: #ffffffb8;
+    border: none;
+}
+
+.carousel-indicators .active {
+    width: 12px;
+    height: 12px;
+    margin: 3px;
+    background-color: $secondary;
+    border: none;
+}
+
+.carousel-indicators {
+    bottom: 25%;
+}
+
+@media only screen and (max-width: 480px) {
+    h3 {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .frame-sm {
+        display: none;
+    }
+    .mr-3 {
+        margin-right: 3%;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1100px) {
+    .mr-3 {
+        margin-right: 5% !important;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .mr-3 {
+        margin-right: 0% !important;
+    }
+    .carousel-indicators li {
+        width: 15px;
+        height: 15px;
+        margin: 5px;
+        background-color: #ffffffb8;
+        border: none;
+    }
+    .carousel-indicators .active {
+        width: 15px;
+        height: 15px;
+        margin: 5px;
+        background-color: $secondary;
+        border: none;
+    }
+}
+
+// @media only screen and (min-width: 1440px) {
+//     .bike-side-header {
+//         background: rgb(255, 255, 255) !important;
+//         background: linear-gradient(90deg, $primary 0%, $primary 2%, #68bfa8bd 2%, #68bfa8bd 10%, $primary 10%, $primary 10%) !important;
+//     }
+// }
+@media only screen and (max-width: 769px) {
+    .frame-md {
+        display: none;
+    }
+    .carousel-indicators {
+        bottom: 10%;
+    }
+    .carousel-indicators li {
+        width: 11px;
+        height: 11px;
+        margin: 4px;
+    }
+    .carousel-indicators .active {
+        width: 11px;
+        height: 11px;
+        margin: 4px;
+    }
+}
